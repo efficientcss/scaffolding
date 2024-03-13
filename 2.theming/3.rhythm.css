@@ -1,0 +1,44 @@
+@layer theming {
+	/* Content rhythm ----------------------- */
+	/* stylelint-disable-next-line -- exception for visually-hidden */
+	:not(:where(html, body, nav, div, label, ul, ol, li, p, a, span))>:not(:where(link, script, .as-visually-hidden))~* {
+		margin-top: var(--SpacingRow);
+	}
+
+	:is(h1, h2, h3, h4, h5, h6)+:is(h1, h2, h3, h4, h5, h6) {
+		margin-top: var(--SpacingThinner);
+	}
+
+	:is(h4, h5, h6)+:is(p, ul, ol) {
+		margin-top: var(--SpacingThinnest);
+	}
+
+	p+p {
+		margin-top: var(--SpacingThinner);
+	}
+
+	*+li {
+		margin-top: var(--SpacingThinnest);
+	}
+
+	i+* {
+		margin-left: var(--SpacingThinnest);
+	}
+
+	:is(h3, h4)+* {
+		margin-top: var(--SpacingThinner);
+	}
+
+	/* *+:is(a, button) */
+
+	/* *+is(input, select, textarea) */
+
+	/* Basic container rhythm */
+	main>*+* {
+		margin-top: var(--SpacingLarge);
+	}
+
+	main>:is(section, div)>*+* {
+		margin-top: var(--SpacingBroadest);
+	}
+}

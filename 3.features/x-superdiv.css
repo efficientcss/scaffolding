@@ -1,0 +1,93 @@
+@layer features {
+
+/* SuperDIV - Multi-use container ----------------------- */
+	/* API */
+	@layer config {
+		div {
+			--DivDisplay: flex;
+			--DivItemBasis: 0px;
+			--DivItemGrow: 1;
+			--DivItemShrink: 1;
+			--DivItemGutter: var(--SpacingRow);
+			--DivItemMaxWidth: initial;
+		}
+	}
+
+	/* Container models ------------ */
+	/* Fluid Grid / Albatross ---------- */
+	/* Holy Albatross. See Heydon Pickering:
+		(https://heydonworks.com/article/the-flexbox-holy-albatross/) */
+		.grille {
+			--DivItemBasis: calc((54ch - 100%) * 999);
+			--DivItemGrow: 1;
+			/* --DivItemShrink: 0; */
+			--DivItemGutter: var(--SpacingRow);
+			--DivItemMaxWidth: 100%;
+		}
+
+	/* Prose container ------------- */
+		.prose {
+			--DivMaxWidth: 70ch;
+			--DivColumnWidth: 30ch;
+			--DivItemMaxWidthOnly: 45ch;
+		}
+
+		.prose {
+			--DivDisplay: block;
+			max-width: var(--DivMaxWidth);
+			column-count: 2;
+			column-gap: var(--SpacingRow);
+			column-width: var(--DivColumnWidth);
+		}
+
+		.prose>* {
+			--DivItemGutter: 0;
+			--DivItemMaxWidth: 22ch;
+		}
+
+		.prose>*+* {
+			margin-top: var(--SpacingThinner);
+		}
+
+		.prose>*:only-child {
+			max-width: var(--DivItemMaxWidthOnly);
+			margin-right: auto;
+			margin-left: auto;
+			column-span: all;
+		}
+
+/* Scaffolding: properties and default values --------- */
+/* 1. Display & space occupation ---- */
+		div {
+			/* Flex context with
+			row break for fluidity */
+			display: var(--DivDisplay, flex);
+			flex-wrap: wrap;
+			gap: var(--DivItemGutter, 0px);
+			align-items: inherit;
+			/* Allow inheritance of alignment rules.
+			Facilitates extension by parents */
+			justify-content: inherit;
+		}
+
+		div>* {
+			/* Initial dimensions
+			(can be adjusted!) */
+			flex-basis: var(--DivItemBasis, auto);
+			/* Distribute vacant space
+			equally among children */
+			flex-grow: var(--DivItemGrow, 0);
+			flex-shrink: var(--DivItemShrink, 1);
+			max-width: var(--DivItemMaxWidth, initial);
+		}
+
+		/* Break the inheritance chain
+		to allow successive inclusion */
+		div *:not(div)>* {
+			--DivItemBasis: initial;
+			--DivItemGrow: initial;
+			--DivItemShrink: initial;
+			--DivItemGutter: initial;
+			--DivItemMaxWidth: initial;
+		}
+}

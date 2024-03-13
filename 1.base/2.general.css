@@ -1,0 +1,106 @@
+@layer base {
+	/* Basic generic styles ----------------------- */
+	/* Should only contain tag selectors. No classes are accepted.
+	Must not change from project to project. Versioned. */
+
+	/* Remove all margins */
+	* { 
+		margin: 0; 
+		padding: 0; 
+	}
+
+	/* Force all elements, including controls
+	 * to apply the default fonts. */
+	* { 
+		font-family: inherit; 
+	}
+
+	/* Ensure that they are not displayed
+	 * when integrated into content. */
+	link, script { 
+		display: none; 
+	}
+
+	/* Anchor decoration is unwanted in nav. */
+	nav a { 
+		text-decoration: none; 
+	}
+
+	/* Restrict images to dimensions
+	 * of their parent. Avoid space
+	 * line height (inline vs. block) */
+	img {
+		display: block;
+		max-width: 100%;
+		object-fit: cover; 
+	}
+
+	/* Keep dot inside
+	 * of the text column */
+	ul, ol { 
+		padding-left: var(--bullet-padding, 1.1em); 
+	}
+
+	/* Better typographic display */
+	html { 
+		text-rendering: geometricPrecision; 
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* Prevent the spring effect */
+	body { 
+		overscroll-behavior-y: none; 
+	}
+
+
+	/* Better line heights */
+	html { 
+		line-height: 1.4; 
+	}
+	
+	h1, h2, h3, h4, h5, h6 { 
+		line-height: 1.1; 
+	}
+
+	/* Better graphic style than the browser's */
+	hr {
+		max-height: 0;
+		line-height: 0;
+		border: none; 
+		border-top: 2px solid currentColor;
+	}
+
+	/* Prepare svg to be manipulated */
+	use, svg, path { 
+		fill: inherit; 
+	}
+
+	/* Icons integrated into the text */
+	i>svg {
+		display: inline-block;
+		height: 1.1ch; 
+		margin-right: var(--icon-spacing, 0.5em);
+		margin-left: var(--icon-spacing, 0.5em);
+	}
+
+	/* Emphasis styles */
+	p>em { 
+		font-style: italic; 
+	}
+
+	/* Generic maximum & minimum 
+	 * widths for any paragraph */
+	p { 
+		min-width: var(--p-min-width, 22ch); 
+		max-width: var(--p-max-width, 75ch); 
+	}
+
+	/* Disable delay on iOS
+	 * when tapping on an element */
+	@media (hover:none) {
+		html { 
+			touch-action: manipulation; 
+		}
+	}
+
+}
