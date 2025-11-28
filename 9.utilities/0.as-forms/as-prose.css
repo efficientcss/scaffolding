@@ -1,0 +1,24 @@
+@layer utilities {
+	.as-prose {
+		--DivColumnWidth: 43ch;
+		--DivItemMaxWidthOnly: 45ch;
+		--DivColumnGap: var(--SpacingBroad);
+	}
+
+	.as-prose {
+		column-gap: var(--DivColumnGap);
+		column-width: var(--DivColumnWidth);
+	}
+
+	.as-prose>*:only-child {
+		max-width: var(--DivItemMaxWidthOnly);
+		margin-right: auto;
+		margin-left: auto;
+		column-span: all;
+	}
+
+	.as-prose :is(h1, h2, h3, h4, h5, h6) {
+		break-after: avoid;
+	}
+}
+

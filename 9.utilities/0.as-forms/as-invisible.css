@@ -1,0 +1,9 @@
+.as-invisible {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    max-height: 1px;
+    overflow: hidden; /* stylelint-disable-line */
+    position: absolute;
+    white-space: nowrap;
+    max-width: 1px;
+}

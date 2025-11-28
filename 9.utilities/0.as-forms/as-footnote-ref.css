@@ -1,0 +1,21 @@
+@layer utilities {
+	.as-footnote-ref {
+		text-decoration: none;
+		font-style: normal;
+
+		&>sup {
+			font-family: var(--Grotesk);
+			background-color: oklch(98% 38% var(--RedHue));
+			padding: 3px 2px;
+			margin-left: 0.1625em;
+			font-size: 0.6125rem;
+			border-radius: 2px;
+			font-weight: 700;
+			display: inline-block;
+			text-box: trim-both cap alphabetic;
+			margin-top: -0.25em;
+			color: black;
+		}
+
+	}
+}

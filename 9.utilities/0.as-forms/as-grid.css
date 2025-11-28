@@ -1,0 +1,20 @@
+@layer utilities {
+	.as-grid {
+		--ColumnWidth: var(--SpacingLargest);
+		--GutterWidth: var(--SpacingRow);
+
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(var(--ColumnWidth), 100%), 1fr));
+		align-items: baseline;
+
+		gap: var(--GutterWidth);
+
+		&>* {
+			margin: 0;
+		}
+
+		&:is(ul), &:has(>blockquote) {
+			grid-template-columns: repeat(auto-fill, minmax(min(var(--ColumnWidth), 100%), 1fr));
+		}
+	}
+}

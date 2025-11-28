@@ -1,0 +1,16 @@
+.as-tagline {
+	--ScaleLevel: var(--Hugest);
+	--FontWeight: 800;
+	--LineHeightFactor: 1.1;
+	--BaselineInterval: calc(var(--Row) / 4);
+
+	font-family: var(--Condensed);
+	text-transform: uppercase;
+	min-width: initial;
+
+	& em {
+		color: oklch(96% 46% var(--LimeHue));
+	}
+}
+
+
