@@ -17,13 +17,20 @@
 	/* Basic typographic sizes, colors & spacing */
 	*::before, *::after,
 	select, input, textarea, button, legend, figcaption,
-	p, ul, ol, a, q, cite, span, small, th, td,
+	p, li, dd, dt, a, q, cite, span, strong, small, th, td,
 	h1, h2, h3, h4, h5, h6 {
-		--FontSize: calc(var(--ScaleLevel, 1) * 1em); 
+		--FontSize: calc(var(--ScaleLevel, 1) * 1rem); 
+	}
+
+	/* Inheritance in place for child “inline” elements */
+	legend *, figcaption *, button *, p *, li *, dd *, dt *, a *, q *, cite *, span *, small *, th *, td *,
+	h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+		font-size: inherit;
+		font-style: inherit;
 	}
 
 	select, input, textarea, button, legend, figcaption,
-	p, ul, ol, a, q, cite, span, small, th, td,
+	p, li, dd, dt, a, q, cite, span, strong, small, th, td,
 	h1, h2, h3, h4, h5, h6 {
 		color: var(--Color, inherit);
 		font-weight: var(--FontWeight, inherit);
@@ -36,17 +43,11 @@
 		font-weight: var(--FontWeight, 600);
 	}
 
-
-	/* Inheritance in place for child “inline” elements */
-	legend *, figcaption *, button *, p *, ul *, ol *, a *, q *, cite *, span *, small *, th *, td *,
-	h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
-		font-size: inherit;
-		font-style: inherit;
+	p>:is(strong, a) {
 		line-height: inherit;
 	}
 
-/* Allow icons to receive context color */
-	i {
-		fill: currentColor; 
+	hr {
+		color: var(--Color, inherit);
 	}
 }

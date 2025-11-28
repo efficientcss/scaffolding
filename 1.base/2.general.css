@@ -15,14 +15,8 @@
 		font-family: inherit; 
 	}
 
-	/* Ensure that they are not displayed
-	 * when integrated into content. */
-	link, script { 
-		display: none; 
-	}
-
 	/* Anchor decoration is unwanted in nav. */
-	nav a { 
+	nav a, a:where([class]) { 
 		text-decoration: none; 
 	}
 
@@ -39,6 +33,10 @@
 	 * of the text column */
 	ul, ol { 
 		padding-left: var(--bullet-padding, 1.1em); 
+	}
+
+	:is(ul, ol):where([class]) {
+		padding-left: 0;
 	}
 
 	/* Better typographic display */
@@ -68,6 +66,7 @@
 		line-height: 0;
 		border: none; 
 		border-top: 2px solid currentColor;
+		color: currentColor;
 	}
 
 	/* Prepare svg to be manipulated */
@@ -75,12 +74,25 @@
 		fill: inherit; 
 	}
 
+	sup {
+		line-height: 0;
+		font-style: normal;
+	}
+
 	/* Icons integrated into the text */
-	i>svg {
-		display: inline-block;
-		height: 1.1ch; 
-		margin-right: var(--icon-spacing, 0.5em);
-		margin-left: var(--icon-spacing, 0.5em);
+	i:where(:has(img, svg)) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		fill: currentColor; 
+		height: 1.1ch;
+		width: max-content;
+		margin-right: var(--icon-spacing, 10px);
+	}
+
+	i :is(img, svg, use) {
+		display: block;
+		height: 100%;
 	}
 
 	/* Emphasis styles */
@@ -101,6 +113,19 @@
 		html { 
 			touch-action: manipulation; 
 		}
+	}
+
+}
+
+@layer immutable {
+	/* Ensure that they are not displayed
+	 * when integrated into content. */
+	link, script { 
+		display: none;
+	}
+
+	:is(link, script):first-child+* {
+		margin-top: 0;
 	}
 
 }
