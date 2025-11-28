@@ -1,7 +1,7 @@
 @layer theming {
 	/* Content rhythm ----------------------- */
-	/* stylelint-disable-next-line -- exception for visually-hidden */
-	:not(:where(html, body, nav, div, label, ul, ol, li, p, a, span))>:not(:where(link, script, .as-visually-hidden))~* {
+	/* stylelint-disable-next-line -- exception for is-invisible */
+	:not(:where(html, body, nav, div, label, ul, ol, li, p, a, span))>:not(:where(link, script, .as-invisible))~* {
 		margin-top: var(--SpacingRow);
 	}
 
@@ -13,8 +13,16 @@
 		margin-top: var(--SpacingThinnest);
 	}
 
+	*+:is(h1,h2,h3,h4,h5,h6,ul,ol,p) {
+		margin-top: var(--SpacingThin);
+	}
+
+	*+:is(h4) {
+		margin-top: var(--SpacingBroader);
+	}
+
 	p+p {
-		margin-top: var(--SpacingThinner);
+		margin-top: var(--SpacingRow);
 	}
 
 	*+li {
@@ -25,20 +33,56 @@
 		margin-left: var(--SpacingThinnest);
 	}
 
-	:is(h3, h4)+* {
+	*+hr {
+		margin-top: var(--SpacingBroad);
+	}
+
+	:is(h3, h4)+p {
 		margin-top: var(--SpacingThinner);
 	}
 
-	/* *+:is(a, button) */
-
-	/* *+is(input, select, textarea) */
-
 	/* Basic container rhythm */
+	main>*+* {
+		margin-top: var(--SpacingBroadest);
+	}
+
+	main>header+* {
+		margin-top: var(--SpacingBroadest);
+	}
+
 	main>*+* {
 		margin-top: var(--SpacingLarge);
 	}
 
-	main>:is(section, div)>*+* {
+	where(:is([hidden]):first-child)+* {
+		margin-top: initial;
+	}
+
+	:is(h1, .h1)+strong {
+		margin-top: var(--SpacingThinnest);
+
+		&+* {
+			margin-top: var(--SpacingRow);
+		}
+	}
+
+	small+:is(h1, h2, h3) {
+		margin-top: var(--SpacingThinnest);
+	}
+
+	h1+p {
+		margin-top: var(--SpacingBroad);
+	}
+
+	h1 ~ p + a {
 		margin-top: var(--SpacingBroadest);
+	}
+
+	h2 + p {
+		margin-top: var(--SpacingBroad);
+	}
+
+	p + h3 {
+		margin-top: var(--SpacingBroad);
 	}
 }
