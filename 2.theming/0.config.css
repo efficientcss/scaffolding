@@ -6,33 +6,29 @@
 	 * Refer to the bottom of this file for the full list. */
 	html {
 		/* Palette colors */
-		--rgbPink: 255, 214, 231;
-		--rgbYellow: 246, 229, 197;
-		--rgbBlue: 10, 12, 91;
-		--Pink: rgb(var(--rgbPink));
-		--Yellow: rgb(var(--rgbYellow));
-		--Blue: rgb(var(--rgbBlue));
+		--BrownHue: 88deg;
+		--BlueHue: 274deg;
+		--CyanHue: 219deg;
+		--RedHue: 19deg;
+		--LimeHue: 143deg;
 
-		/* Logical colors */
-		--Color: var(--Blue);
-		--ColorSupport: var(--Pink);
-		--ColorAccent:;
-		--ColorBg: var(--Yellow);
-		--rgbColor: var(--rgbBlue);
-		--rgbColorSupport: var(--rgbPink);
-		--rgbColorAccent:;
-		--rgbColorBg: var(--rgbYellow);
+		--ThemeHue: var(--BlueHue);
+
+		/* Fonts */
+		--Grotesk: "PP Neue Montreal", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		--Condensed: "PP Right Grotesk Compact", sans-serif;
+		--Serif: Aleo, Georgia, Times, serif;
 
 
 		/* Fluid Typography */
 		--MinFontSize: 16px;
-		--TargetFontSize: 1.2dvw;
-		--MaxFontSize: 19px;
+		--TargetFontSize: 2.5dvw;
+		--MaxFontSize: 18px;
 
 		--BodyWidth: auto;
 
 		/* Row-based spacing scale */
-		--RowFactor: 1.56125;
+		--RowFactor: 1.4125;
 		--RowUnit: 1rem;
 		--Row: calc(var(--RowFactor) * var(--RowUnit));
 
@@ -44,11 +40,11 @@
 		--SpacingThinner:   calc(var(--Row) * 0.50);
 		--SpacingThin:      calc(var(--Row) * 0.75);
 		--SpacingRow:            var(--Row);
-		--SpacingBroad:     calc(var(--Row) * 1.25);
-		--SpacingBroader:   calc(var(--Row) * 1.5);
-		--SpacingBroadest:  calc(var(--Row) * 2);
+		--SpacingBroad:     calc(var(--Row) * 1.5);
+		--SpacingBroader:   calc(var(--Row) * 2);
+		--SpacingBroadest:  calc(var(--Row) * 3);
 		--SpacingLarge:     calc(var(--Row) * 4);
-		--SpacingLarger:    calc(var(--Row) * 7);
+		--SpacingLarger:    calc(var(--Row) * 6);
 		--SpacingLargest:   calc(var(--Row) * 10);
 		/*--- */
 		--SpacingMega:      24rem;
@@ -59,10 +55,13 @@
 
 		/* Music-based typographic scale */
 		--MajorSecond: 1.125;
-		--MinorThird: 1.200;
 		--MajorThird: 1.250;
 		--PerfectFourth: 1.333;
 		--AugmentedFourth: 1.414;
+		--MinorThird: 1.200;
+		--MinorSecond: 1.067;
+		--PerfectFifth: 1.500;
+		--GoldenRatio: 1.618;
 
 		/* Base value for scale level calculations */
 		/* !NOTE: Keep without unit if using the ECSS scale system. */
@@ -81,59 +80,62 @@
 		--ease-out-quad:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
 		--ease-out-back:     cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		--ease-bounce-light: cubic-bezier(0, 1.1, 1, 1.1);
+		--ease-out-quart:    cubic-bezier(0.165, 0.84, 0.44, 1);
 	}
 }
 
+/* stylelint-disable ecss/commented-code */
+
 /* Typographic scales (musical harmonies) ----------------------- */
-	/* --MajorSecond: 1.125; */
-	/* --MajorThird: 1.250; */
-	/* --PerfectFourth: 1.333; */
-	/* --AugmentedFourth: 1.414; */
-	/* --MinorThird: 1.200; */
-	/* --MinorSecond: 1.067; */
-	/* --PerfectFifth: 1.500; */
-	/* --GoldenRatio: 1.618; */
+/* --MajorSecond: 1.125; */
+/* --MajorThird: 1.250; */
+/* --PerfectFourth: 1.333; */
+/* --AugmentedFourth: 1.414; */
+/* --MinorThird: 1.200; */
+/* --MinorSecond: 1.067; */
+/* --PerfectFifth: 1.500; */
+/* --GoldenRatio: 1.618; */
 
 /* Levels of the typographic scale ----------------------- */
-	/* --Miniature: calc(var(--Shortest) / var(--Scale, 1)); */
-	/* --Shortest: calc(var(--Short) / var(--Scale, 1)); */
-	/* --Short: calc(var(--Base, 1) / var(--Scale, 1)); */
-	/* --Base: 1; */
-	/* --Tall: calc(var(--Base, 1) * var(--Scale, 1)); */
-	/* --Taller: calc(var(--Tall) * var(--Scale, 1)); */
-	/* --Tallest: calc(var(--Taller) * var(--Scale, 1)); */
-	/* --Huge: calc(var(--Tallest) * var(--Scale, 1)); */
-	/* --Huger: calc(var(--Huge) * var(--Scale, 1)); */
-	/* --Hugest: calc(var(--Huger) * var(--Scale, 1)); */
+/* --Miniature: calc(var(--Shortest) / var(--Scale, 1)); */
+/* --Shortest: calc(var(--Short) / var(--Scale, 1)); */
+/* --Short: calc(var(--Base, 1) / var(--Scale, 1)); */
+/* --Base: 1; */
+/* --Tall: calc(var(--Base, 1) * var(--Scale, 1)); */
+/* --Taller: calc(var(--Tall) * var(--Scale, 1)); */
+/* --Tallest: calc(var(--Taller) * var(--Scale, 1)); */
+/* --Huge: calc(var(--Tallest) * var(--Scale, 1)); */
+/* --Huger: calc(var(--Huge) * var(--Scale, 1)); */
+/* --Hugest: calc(var(--Huger) * var(--Scale, 1)); */
 
 /* Easing functions ----------------------- */
-	/* --ease-out-quad:     cubic-bezier(0.25, 0.46, 0.45, 0.94); */
-	/* --ease-out-back:     cubic-bezier(0.175, 0.885, 0.32, 1.275); */
-	/* --ease-bounce-light: cubic-bezier(0, 1.1, 1, 1.1); */
-	/* --ease-in-out-back:  cubic-bezier(0.68, -0.25, 0.265, 1.25); */
-	/* --ease-linear:       cubic-bezier(0, 0, 1, 1); */
-	/* --ease-in:           cubic-bezier(0.42, 0, 1, 1); */
-	/* --ease-out:          cubic-bezier(0, 0, 0.58, 1); */
-	/* --ease-in-out:       cubic-bezier(0.42, 0, 0.58, 1); */
-	/* --ease-in-sine:      cubic-bezier(0.47, 0, 0.745, 0.715); */
-	/* --ease-out-sine:     cubic-bezier(0.39, 0.575, 0.565, 1); */
-	/* --ease-in-out-sine:  cubic-bezier(0.445, 0.05, 0.55, 0.95); */
-	/* --ease-in-quad:      cubic-bezier(0.55, 0.085, 0.68, 0.53); */
-	/* --ease-back-in:      cubic-bezier(0.6, -0.28, 0.735, 0.045); */
-	/* --ease-in-out-quad:  cubic-bezier(0.455, 0.03, 0.515, 0.955); */
-	/* --ease-in-cubic:     cubic-bezier(0.55, 0.055, 0.675, 0.19); */
-	/* --ease-out-cubic:    cubic-bezier(0.215, 0.61, 0.355, 1); */
-	/* --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1); */
-	/* --ease-in-quart:     cubic-bezier(0.895, 0.03, 0.685, 0.22); */
-	/* --ease-out-quart:    cubic-bezier(0.165, 0.84, 0.44, 1); */
-	/* --ease-in-out-quart:  cubic-bezier(0.77, 0, 0.175, 1); */
-	/* --ease-in-quint:     cubic-bezier(0.755, 0.05, 0.855, 0.06); */
-	/* --ease-out-quint:    cubic-bezier(0.23, 1, 0.32, 1); */
-	/* --ease-in-expo:      cubic-bezier(0.95, 0.05, 0.795, 0.035); */
-	/* --ease-out-expo:     cubic-bezier(0.19, 1, 0.22, 1); */
-	/* --ease-in-out-expo:  cubic-bezier(1, 0, 0, 1); */
-	/* --ease-in-circ:      cubic-bezier(0.6, 0.04, 0.98, 0.335); */
-	/* --ease-out-circ:     cubic-bezier(0.075, 0.82, 0.165, 1); */
-	/* --ease-in-out-circ:  cubic-bezier(0.785, 0.135, 0.15, 0.86); */
-	/* --ease-in-back:      cubic-bezier(0.6, -0.28, 0.735, 0.045); */
+/* --ease-out-quad:     cubic-bezier(0.25, 0.46, 0.45, 0.94); */
+/* --ease-out-back:     cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+/* --ease-bounce-light: cubic-bezier(0, 1.1, 1, 1.1); */
+/* --ease-in-out-back:  cubic-bezier(0.68, -0.25, 0.265, 1.25); */
+/* --ease-linear:       cubic-bezier(0, 0, 1, 1); */
+/* --ease-in:           cubic-bezier(0.42, 0, 1, 1); */
+/* --ease-out:          cubic-bezier(0, 0, 0.58, 1); */
+/* --ease-in-out:       cubic-bezier(0.42, 0, 0.58, 1); */
+/* --ease-in-sine:      cubic-bezier(0.47, 0, 0.745, 0.715); */
+/* --ease-out-sine:     cubic-bezier(0.39, 0.575, 0.565, 1); */
+/* --ease-in-out-sine:  cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+/* --ease-in-quad:      cubic-bezier(0.55, 0.085, 0.68, 0.53); */
+/* --ease-back-in:      cubic-bezier(0.6, -0.28, 0.735, 0.045); */
+/* --ease-in-out-quad:  cubic-bezier(0.455, 0.03, 0.515, 0.955); */
+/* --ease-in-cubic:     cubic-bezier(0.55, 0.055, 0.675, 0.19); */
+/* --ease-out-cubic:    cubic-bezier(0.215, 0.61, 0.355, 1); */
+/* --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1); */
+/* --ease-in-quart:     cubic-bezier(0.895, 0.03, 0.685, 0.22); */
+/* --ease-out-quart:    cubic-bezier(0.165, 0.84, 0.44, 1); */
+/* --ease-in-out-quart:  cubic-bezier(0.77, 0, 0.175, 1); */
+/* --ease-in-quint:     cubic-bezier(0.755, 0.05, 0.855, 0.06); */
+/* --ease-out-quint:    cubic-bezier(0.23, 1, 0.32, 1); */
+/* --ease-in-expo:      cubic-bezier(0.95, 0.05, 0.795, 0.035); */
+/* --ease-out-expo:     cubic-bezier(0.19, 1, 0.22, 1); */
+/* --ease-in-out-expo:  cubic-bezier(1, 0, 0, 1); */
+/* --ease-in-circ:      cubic-bezier(0.6, 0.04, 0.98, 0.335); */
+/* --ease-out-circ:     cubic-bezier(0.075, 0.82, 0.165, 1); */
+/* --ease-in-out-circ:  cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+/* --ease-in-back:      cubic-bezier(0.6, -0.28, 0.735, 0.045); */
 
