@@ -1,3 +1,18 @@
+/*
+
+Elements are single, simple and ubiquitous.
+They should be seen as a base for most of an interface controls and repeated small content chunks.
+They should use tags where appropriate and always add the corresponding class.
+
+Examples
+
+input, .input {  }
+button, .button {  }
+select, .select {  }
+
+
+ */
+
 button, .button {
 	-webkit-appearance: none;
 	appearance: none;
